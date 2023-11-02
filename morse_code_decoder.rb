@@ -34,7 +34,7 @@ end
 
 def decode_word(word)
   @letters = word.split
-  @current_word = ""
+  @current_word = ''
   @letters.each do |letter|
     get_letter(letter)
     @current_word += get_letter(letter)
@@ -49,4 +49,5 @@ def decode_message(message)
   end
 end
 
-decode_message('.... . .-.. .-.. --- -.-- --- ..- .-. .. -..')
+message_code = '.... . .-.. .-.. --- -.-- --- ..- .-. .. -..'
+decode_message(message_code)
