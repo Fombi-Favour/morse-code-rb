@@ -28,26 +28,24 @@
 }
 
 def get_letter(letter)
-  @present_letter = @dictionary[letter]
-  @present_letter
+  @dictionary[letter]
 end
 
 def decode_word(word)
-  @letters = word.split
   @current_word = ''
-  @letters.each do |letter|
-    get_letter(letter)
-    @current_word += get_letter(letter)
+  word.split(' ').each do |letter|
+    decoded_letter = get_letter(letter)
+    @current_word += decoded_letter if decoded_letter
   end
-  print @current_word
+  @current_word
 end
 
 def decode_message(message)
-  @words = message.split
-  @words.each do |word|
-    decode_word(word)
-  end
+  words = message.split('   ')
+  decoded_words = words.map { |word| decode_word(word) }
+  decoded_message = decoded_words.join(' ')
+  print decoded_message
 end
 
-message_code = '.... . .-.. .-.. --- -.-- --- ..- .-. .. -..'
+message_code = ".-   -... --- -..-   ..-. ..- .-.. .-..    --- ..-.    .-. ..- -... .. . ..."
 decode_message(message_code)
