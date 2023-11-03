@@ -39,11 +39,11 @@ def decode_word(word)
     get_letter(letter)
     @current_word += get_letter(letter)
   end
-  print "#{@current_word}"
+  print @current_word
 end
 
 def decode_message(message)
-  @words = message.split(' ')
+  @words = message.split
   @words.each do |word|
     decode_word(word)
   end
